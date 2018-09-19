@@ -2,6 +2,8 @@ GEM
   remote: https://rubygems.org/
   specs:
     mustermann (1.0.3)
+    pg (1.1.3)
+    pg (1.1.3-x64-mingw32)
     rack (2.0.5)
     rack-protection (2.0.4)
       rack
@@ -14,9 +16,11 @@ GEM
 
 PLATFORMS
   ruby
+  x64-mingw32
 
 DEPENDENCIES
+  pg (= 1.1.3)
   sinatra (= 2.0.4)
 
 BUNDLED WITH
-   1.16.2
+   1.16.5
