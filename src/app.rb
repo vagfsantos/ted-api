@@ -1,7 +1,7 @@
 require 'sinatra'
 require 'pg'
-require_relative 'database/connect.database'
-require_relative 'routes/subjects.route'
+require_relative 'infra/database'
+require_relative 'controller/subjects'
 
 get '/' do
   ::DataBase::connect
