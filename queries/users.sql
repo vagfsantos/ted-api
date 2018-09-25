@@ -1,28 +1,4 @@
-﻿/*
-## USER
-- id
-- email
-- senha
-*/
-
-/*
-## SUBJECT
-- id
-- name
-- color
-- user_id
-*/
-
-/*
-## SESSION
-- id
-- start_date
-- start_end
-- subject_id
-- user_id
-*/
-
-CREATE DATABASE ted
+﻿CREATE DATABASE ted
   WITH OWNER = postgres
        ENCODING = 'UTF8'
        TABLESPACE = pg_default
