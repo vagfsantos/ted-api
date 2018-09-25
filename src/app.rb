@@ -1,19 +1,8 @@
-require 'sinatra'
-require 'pg'
-require_relative 'infra/database'
-require_relative 'controller/subjects'
+require 'sinatra/base'
+require_relative './controller/users'
 
-get '/' do
-  ::DataBase::connect
+module Ted
+  class App < Sinatra::Base
+    use Controller::Users
+  end
 end
-
-
-=begin
-
-- Infra -> connect BD / Servico Externo
-- Queries -> Leitura de dados do DB
-- Use Case -> Fluxo, Ações, etc
-- Model -> Dados
-- 
-
-=end
