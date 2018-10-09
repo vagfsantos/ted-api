@@ -10,7 +10,7 @@ module Queries
 
         all_users = []
         data_users = ::DataBase::CONNECTION.exec(query)
-        data_users.each { |row| all_users.append row }
+        data_users.each { |row| all_users.push row }
         all_users
       end
 
