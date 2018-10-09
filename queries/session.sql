@@ -9,9 +9,6 @@
 	PRIMARY KEY(id)
 );
 
-INSERT INTO sessions 
-	(date_start, date_end, subject_id, user_id)
-	VALUES
-	('22/09/2018 15:18:30', '22/09/2018 15:18:35', (SELECT id FROM subjects LIMIT 1), (SELECT id FROM users LIMIT 1));
+INSERT INTO sessions (date_start, date_end, subject_id, user_id) VALUES ('22/09/2018 15:18:30', '22/09/2018 15:18:35', (SELECT id FROM subjects LIMIT 1), (SELECT id FROM users LIMIT 1));
 
 SELECT * FROM sessions;

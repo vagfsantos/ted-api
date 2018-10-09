@@ -1,3 +1,3 @@
-require './src/app'
+require './app/app'
 
 run Ted::App
