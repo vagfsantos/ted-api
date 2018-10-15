@@ -1,38 +1,33 @@
-require 'sinatra'
-require 'pg'
-require_relative '../../infra/database'
+require 'json'
+require_relative '../repository/users'
+require_relative '../entity/users'
 
-module Queries
-  module Users
-    module GET
-      def self.all
-        query = "SELECT id, email FROM users"
-
-        all_users = []
-        data_users = ::DataBase::CONNECTION.exec(query)
-        data_users.each { |row| all_users.push row }
-        all_users
-      end
-
-      def self.by_id(id)
-        query = "SELECT id, email FROM users where id='#{id}'"
-
-        user = Hash.new
-        data_users = ::DataBase::CONNECTION.exec(query)
-        data_users.each { |row| user.merge! row }
-        user
-      end
+module Users
+  class UseCase
+    def get_all
+      repository = ::Users::Repository.new
+      all_users = repository.get_all
+      
+      all_users.to_json
     end
-
-    module POST
-      def self.new(data)
-        email = data["email"]
-        password = data["password"]
-        query = "INSERT INTO users (email, password) values ('#{email}', '#{password}')"
+    
+    def get_by_id(id)
+      repository = ::Users::Repository.new
+      matched_user = repository.get_by_id(id)
+      
+      matched_user.to_json
+    end
+    
+    def save(payload)
+      data = JSON.parse payload
+      email = data['email']
+      password = data['password']
+      
+      repository = ::Users::Repository.new
+      entity = ::Users::Entity.new(email, password)
+      saved_user = repository.save(entity.get_hash)
         
-        response = ::DataBase::CONNECTION.exec(query)
-        response.result_status
-      end
+      saved_user.to_json
     end
   end
 end

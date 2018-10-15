@@ -1,31 +1,31 @@
 require 'sinatra/base'
-require 'json'
 require_relative '../use_case/users'
 
-module Controller
-  class Users < Sinatra::Base
+module Users
+  class Controller < Sinatra::Base
     get '/users' do
       content_type :json
 
-      all_users = ::Queries::Users::GET::all
-      all_users.to_json
+      use_case = ::Users::UseCase.new
+      use_case.get_all
     end
 
     get '/users/:id' do
       content_type :json
       
       user_id = params['id']
-      all_users = ::Queries::Users::GET::by_id(user_id)
-      all_users.to_json
+      use_case = ::Users::UseCase.new
+      
+      use_case.get_by_id(user_id)
     end
 
     post '/users' do
-      pass unless request.accept? 'application/json'
       content_type :json
+      pass unless request.accept? 'application/json'
       
-      data = JSON.parse request.body.read
-      all_users = ::Queries::Users::POST::new(data)
-      all_users.to_json
+      use_case = ::Users::UseCase.new
+      
+      use_case.save(request.body.read)
     end
   end
 end
