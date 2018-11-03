@@ -9,7 +9,7 @@ module User
         
         all_users = []
         users_data = ::DataBase::CONNECTION.exec(query)
-        users_data.each |user_data| do 
+        users_data.each do |user_data|
           all_users.push(user_data)
         end
 
@@ -21,7 +21,7 @@ module User
         
         user = Hash.new
         users_data = ::DataBase::CONNECTION.exec(query)
-        users_data.each |user_data| do
+        users_data.each do |user_data|
           user.merge!(user_data)
         end
         
