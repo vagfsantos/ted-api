@@ -1,15 +1,17 @@
-module Entity
-  class UserEntity
-    def initialize(email, password)
-      @email = email
-      @password = password
-    end
+module User
+  module Entity
+    class UserEntity
+      def initialize(email, password)
+        @email = email
+        @password = password
+      end
 
-    def get_hash
-      return {
-        email: @email,
-        password: @password
-      }
+      def get_hash
+        return {
+          email: @email,
+          password: @password
+        }
+      end
     end
   end
 end

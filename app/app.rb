@@ -3,6 +3,6 @@ require_relative './user/controller/user'
 
 module App
   class Ted < Sinatra::Base
-    use Controller::UserController
+    use User::Controller::UserController
   end
 end
