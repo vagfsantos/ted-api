@@ -1,3 +1,3 @@
 require './app/app'
 
-run Ted::App
+run App::Ted

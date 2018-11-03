@@ -1,8 +1,8 @@
 require 'sinatra/base'
-require_relative './users/controller/users'
+require_relative './user/controller/user'
 
-module Ted
-  class App < Sinatra::Base
-    use Users::Controller
+module App
+  class Ted < Sinatra::Base
+    use Controller::UserController
   end
 end
