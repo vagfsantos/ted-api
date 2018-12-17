@@ -1,5 +1,5 @@
 module App
-  module V1
+  module Api
     module Entity
       class User
         def initialize(email, password)

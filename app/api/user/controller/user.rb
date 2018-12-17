@@ -3,7 +3,7 @@ require 'json'
 require_relative '../use_case/user'
 
 module App
-  module V1
+  module Api
     module Controller
       class User < Sinatra::Base
         get '/users' do
@@ -33,7 +33,7 @@ module App
 
         private
         def use_case
-          @use_case ||= ::App::V1::UseCase::User.new
+          @use_case ||= ::App::Api::UseCase::User.new
         end
       end
     end

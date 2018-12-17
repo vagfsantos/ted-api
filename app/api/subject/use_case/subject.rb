@@ -2,7 +2,7 @@ require_relative '../repository/subject'
 # require_relative '../entity/user'
 
 module App
-  module V1
+  module Api
     module UseCase
       class Subject
         def get_all
@@ -13,7 +13,7 @@ module App
 
         private
         def repository
-          @repository ||= ::App::V1::Repository::User.new
+          @repository ||= ::App::Api::Repository::User.new
         end
       end
     end

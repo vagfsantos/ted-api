@@ -2,7 +2,7 @@ require 'pg'
 require_relative '../../../infra/database'
 
 module App
-  module V1
+  module Api
     module Repository
       class Subject
         def get_all

@@ -1,3 +1,3 @@
-require './app/v1/v1'
+require './app/api/bootstrap'
 
-run ::App::V1::Api
+run ::App::Api::Bootstrap

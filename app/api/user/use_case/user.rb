@@ -2,7 +2,7 @@ require_relative '../repository/user'
 require_relative '../entity/user'
 
 module App
-  module V1
+  module Api
     module UseCase
       class User
         def get_all
@@ -21,7 +21,7 @@ module App
           email = user['email']
           password = user['password']
           
-          entity = ::App::V1::Entity::User.new(email, password)
+          entity = ::App::Api::Entity::User.new(email, password)
           user_to_hash = entity.get_hash
           saved_user = repository.save(user_to_hash)
             
@@ -30,7 +30,7 @@ module App
 
         private
         def repository
-          @repository ||= ::App::V1::Repository::User.new
+          @repository ||= ::App::Api::Repository::User.new
         end
       end
     end
