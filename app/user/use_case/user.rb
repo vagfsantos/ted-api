@@ -4,12 +4,6 @@ require_relative '../entity/user'
 module User
   module UseCase
     class UserUseCase
-      private
-      def repository
-        @repository ||= User::Repository::UserRepository.new
-      end
-
-      public
       def get_all
         all_users = repository.get_all
         
@@ -31,6 +25,11 @@ module User
         saved_user = repository.save(user_to_hash)
           
         saved_user
+      end
+
+      private
+      def repository
+        @repository ||= User::Repository::UserRepository.new
       end
     end
   end

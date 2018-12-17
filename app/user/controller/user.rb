@@ -5,12 +5,6 @@ require_relative '../use_case/user'
 module User
   module Controller
     class UserController < Sinatra::Base
-      private
-      def use_case
-        @use_case ||= Uer::UseCase::UserUseCase.new
-      end
-
-      public
       get '/users' do
         content_type :json
         all_users = use_case.get_all
@@ -34,6 +28,11 @@ module User
         saved_user = use_case.save(payload)
 
         saved_user.to_json
+      end
+
+      private
+      def use_case
+        @use_case ||= Uer::UseCase::UserUseCase.new
       end
     end
   end
