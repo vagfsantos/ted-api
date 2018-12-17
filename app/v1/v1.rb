@@ -3,8 +3,10 @@ require_relative './user/controller/user'
 require_relative './subject/controller/subject'
 
 module App
-  class Ted < Sinatra::Base
-    use ::User::Controller::UserController
-    use ::Subject::Controller::SubjectController
+  module V1
+    class Api < Sinatra::Base
+      use Controller::User
+      use Controller::Subject
+    end
   end
 end

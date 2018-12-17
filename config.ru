@@ -1,3 +1,3 @@
-require './app/app'
+require './app/v1/v1'
 
-run App::Ted
+run ::App::V1::Api
